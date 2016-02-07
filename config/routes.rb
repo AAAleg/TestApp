@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
+  root 'users#index'
+
+  get '/login' => 'sessions#new'
+  get '/logout' => 'sessions#destroy'
+
   get '/test_all' => 'test_pages#test_all'
   get '/test_auth' => 'test_pages#test_auth'
 
-  root 'users#index'
-
   resources :users, except: :show
+  resources :sessions, only: [:new, :create, :destroy]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
