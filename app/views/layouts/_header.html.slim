@@ -11,3 +11,5 @@ body
             - if current_user
                 li = link_to "#{current_user.email}", edit_user_path(current_user)
                 li = link_to "Log out", logout_path
+	    - else
+	        li = link_to "Log in", login_path
