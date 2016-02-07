@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get '/test_all' => 'test_pages#test_all'
+  get '/test_auth' => 'test_pages#test_auth'
+
   root 'users#index'
 
   resources :users, except: :show
